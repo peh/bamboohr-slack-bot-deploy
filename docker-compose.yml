@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  redis:
+    image: redis
+  web:
+    image: abiosoft/caddy
+    environment:
+      - ACME_AGREE=true
+      - BOT_DOMAIN
+    volumes:
+      - ./Caddyfile:/etc/Caddyfile
+      - ./caddy/:/root/.caddy
+  app:
+    build: .
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    environment:
+      - BAMBOOHR_COMPANY
+      - SLACK_TOKEN
+      - SLACK_TEAMID
+      - REDIS_HOST=redis
+    ports:
+      - 9000:9000
