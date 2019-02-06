@@ -2,6 +2,9 @@ version: "3.7"
 services:
   redis:
     image: redis
+    volumes:
+      - ./redis/:/data:rw
+    command: redis-server --appendonly yes
   web:
     image: abiosoft/caddy
     environment:
@@ -9,7 +12,7 @@ services:
       - BOT_DOMAIN
     volumes:
       - ./Caddyfile:/etc/Caddyfile
-      - ./caddy/:/root/.caddy
+      - ./caddy/:/root/.caddy:rw
   app:
     build: .
     env_file:
