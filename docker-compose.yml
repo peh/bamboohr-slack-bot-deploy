@@ -10,6 +10,7 @@ services:
     environment:
       - ACME_AGREE=true
       - BOT_DOMAIN
+      - ACME_EMAIL
     volumes:
       - ./Caddyfile:/etc/Caddyfile
       - ./caddy/:/root/.caddy:rw
