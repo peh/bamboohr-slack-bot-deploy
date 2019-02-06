@@ -14,6 +14,9 @@ services:
     volumes:
       - ./Caddyfile:/etc/Caddyfile
       - ./caddy/:/root/.caddy:rw
+    ports:
+      - 80:80
+      - 443:443
   app:
     build: .
     env_file:
