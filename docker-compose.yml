@@ -26,7 +26,6 @@ services:
     environment:
       - BAMBOOHR_COMPANY
       - SLACK_TOKEN
-      - SLACK_TEAMID
       - REDIS_HOST=redis
     ports:
       - 9000:9000
