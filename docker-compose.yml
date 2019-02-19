@@ -20,6 +20,6 @@ services:
       - BAMBOOHR_COMPANY
       - SLACK_TOKEN
     volumes:
-      - .data/:/app/database.json
+      - database.json:/app/database.json
     ports:
       - 9000:9000
