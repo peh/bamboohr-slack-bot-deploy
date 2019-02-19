@@ -1,10 +1,5 @@
 version: "3.7"
 services:
-  redis:
-    image: redis
-    volumes:
-      - ./redis/:/data:rw
-    command: redis-server --appendonly yes
   web:
     image: abiosoft/caddy
     environment:
@@ -21,11 +16,10 @@ services:
     build: .
     env_file:
       - .env
-    depends_on:
-      - redis
     environment:
       - BAMBOOHR_COMPANY
       - SLACK_TOKEN
-      - REDIS_HOST=redis
+    volumes:
+      - .data/:/app/database.json
     ports:
       - 9000:9000
