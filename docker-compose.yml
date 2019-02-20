@@ -19,6 +19,7 @@ services:
     environment:
       - BAMBOOHR_COMPANY
       - SLACK_TOKEN
+      - TZ
       - DB_FILE=/app/data/database.josn
     volumes:
       - ./data:/app/data/

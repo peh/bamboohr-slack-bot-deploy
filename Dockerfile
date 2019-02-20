@@ -1,6 +1,6 @@
 FROM java:8-alpine
 
-RUN apk add --no-cache curl jq
+RUN apk add --no-cache curl jq tzdata
 
 WORKDIR /app
 
