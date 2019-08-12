@@ -1,4 +1,4 @@
-FROM java:11-alpine
+FROM java:9-alpine
 
 RUN apk add --no-cache curl jq tzdata
 
